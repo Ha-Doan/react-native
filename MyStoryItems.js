@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
+import StoryItem from './StoryItem'
 
 class MyStoryItems extends React.PureComponent {
   static propTypes = {
@@ -19,7 +20,10 @@ class MyStoryItems extends React.PureComponent {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollview}>
-          {this.props.items.map(item => <Text>{item.item}</Text>)}
+          {this.props.items.map(item => <StoryItem
+            storyItem={item}
+            // onSelect={this.selectItem}
+          />)}
         </ScrollView>
       </View>
     )
