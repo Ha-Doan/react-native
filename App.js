@@ -1,22 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { MyFlatList } from './MyFlatList'
+import { StyleSheet, Text, View, NavigatorIOS } from 'react-native';
+import CategorySelectionScene from './CategorySelectionScene'
 
-export default class App extends React.Component {
+class App extends React.PureComponent {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={{fontWeight: 'bold', fontSize: 18}}>Welcome to the story generator!</Text>
-        <MyFlatList />
-      </View>
-    );
-  }
+   return (
+     <NavigatorIOS
+       initialRoute={{
+         component: CategorySelectionScene,
+         title: 'Story Generator',
+         passProps: {index: 1},
+       }}
+       style={{flex: 1}}
+     />
+   )}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#AF7AC5',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
