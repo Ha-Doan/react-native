@@ -10,19 +10,16 @@ import StoryItem from './StoryItem'
 
 class MyStoryItems extends React.PureComponent {
   static propTypes = {
-   // Movie object with title, genre, and poster
    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-   // Called when user taps on a poster
-  //  onOpen: PropTypes.func.isRequired,
  }
+
   render() {
-    console.log('HUHU ', this.props.items)
+    console.log('ITEMS ', this.props.items)
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollview}>
           {this.props.items.map(item => <StoryItem
             storyItem={item}
-            // onSelect={this.selectItem}
           />)}
         </ScrollView>
       </View>

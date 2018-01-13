@@ -9,21 +9,18 @@ import {
   View
 } from 'react-native'
 
-const { width, height } = Dimensions.get('window')
-// How many story items we want to have in each row and column
-const cols = 2, rows = 2;
-
 export default class StoryItem extends React.PureComponent {
   static propTypes = {
     storyItem: PropTypes.object.isRequired,
-    // Called when user taps on a story item
-    // onSelect: PropTypes.func.isRequired,
+  }
+  selectItem = (item) => {
+    console.log('SELECTED ', item.item)
   }
   render() {
-    const { storyItem, onSelect } = this.props
-    console.log('PIC ', storyItem.picture)
+    const { storyItem } = this.props
+    console.log('PICTURE ', storyItem.picture)
     return (
-      <TouchableOpacity style={styles.container} onPress={() => onSelect(storyItem)}>
+      <TouchableOpacity style={styles.container} onPress={() => this.selectItem(storyItem)}>
         <View style={styles.imageContainer}>
           <Image source={{ uri: storyItem.picture }} style={styles.image} />
         </View>
@@ -41,7 +38,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   imageContainer: {
-    flex: 1,                          // take up all available space
+    flex: 1,
   },
   image: {
     width: 100,
@@ -51,5 +48,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
   },
+  note: {
+    marginLeft: 10,
+    marginBottom: 10,
+    textAlign: 'center',
+  }
 
 })

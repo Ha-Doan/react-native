@@ -30,7 +30,7 @@ class CategorySelectionScene extends React.PureComponent {
   componentDidMount() {
     axios.get('http://192.168.178.25:8097/categories')
     .then(responseData => {
-      console.log('OMG ', responseData.data)
+      console.log('RES ', responseData.data)
       if (responseData)
         this.setState( {'data' : responseData.data} )})
     .catch(err => console.log(err))
