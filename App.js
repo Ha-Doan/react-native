@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, NavigatorIOS } from 'react-native';
-import CategorySelectionScene from './CategorySelectionScene'
+import CategorySelectionScene from './components/CategorySelectionScene'
 
 class App extends React.PureComponent {
   render() {

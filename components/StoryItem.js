@@ -26,9 +26,7 @@ export default class StoryItem extends React.PureComponent {
         </View>
         <Text style={styles.title} numberOfLines={1}>{storyItem.item}</Text>
       </TouchableOpacity>
-    )
-  }
-}
+  )}}
 
 const styles = StyleSheet.create({
   container: {

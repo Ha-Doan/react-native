@@ -11,7 +11,7 @@ import StoryItem from './StoryItem'
 class MyStoryItems extends React.PureComponent {
   static propTypes = {
    items: PropTypes.arrayOf(PropTypes.object).isRequired,
- }
+  }
 
   render() {
     console.log('ITEMS ', this.props.items)
@@ -23,9 +23,7 @@ class MyStoryItems extends React.PureComponent {
           />)}
         </ScrollView>
       </View>
-    )
-  }
-}
+  )}}
 
 const styles = StyleSheet.create({
   container: {

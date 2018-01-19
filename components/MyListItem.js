@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import {NavigationActions} from 'react-navigation'
+
 class MyListItem extends React.PureComponent {
   constructor(props){
       super(props)
@@ -32,7 +33,6 @@ class MyListItem extends React.PureComponent {
   }
 
   render() {
-
     return (
       <TouchableOpacity key={this.props.title} onPress={this._onPress}>
         <View>
@@ -41,8 +41,6 @@ class MyListItem extends React.PureComponent {
           </Text>
         </View>
       </TouchableOpacity>
-    );
-  }
-}
+    )}}
 
 export default MyListItem

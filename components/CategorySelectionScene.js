@@ -5,9 +5,7 @@ import axios from 'axios'
 
 class CategorySelectionScene extends React.PureComponent {
   state = {selected: (new Map(): Map<string, boolean>)}
-
   _keyExtractor = (item, index) => item.id || item.category
-
   _onPressItem = (id: string) => {
     // updater functions are preferred for transactional updates
     this.setState((state) => {
@@ -15,8 +13,7 @@ class CategorySelectionScene extends React.PureComponent {
       const selected = new Map(state.selected)
       selected.set(id, selected.get(id)) // toggle
       return {selected}
-    })
-  }
+    })}
 
   _renderItem = ({item}) => (
     <MyListItem
@@ -25,8 +22,8 @@ class CategorySelectionScene extends React.PureComponent {
       selected={!!this.state.selected.get(item.id)}
       title={item.category}
       navigator={this.props.navigator}
-    />
-  )
+    />)
+
   componentDidMount() {
     axios.get('http://192.168.178.25:8097/categories')
     .then(responseData => {
@@ -47,9 +44,7 @@ class CategorySelectionScene extends React.PureComponent {
           style={styles.myList}
         />
       </View>
-    )
-  }
-}
+    )}}
 
 const styles = StyleSheet.create({
   container: {
