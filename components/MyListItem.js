@@ -17,7 +17,7 @@ class MyListItem extends React.PureComponent {
 
   onPress = () => {
     this.props.onPressItem(this.props.id)
-    var url = 'http://192.168.178.25:8097/' + this.props.title.toLowerCase()
+    var url = 'http://172.16.30.139:8097/' + this.props.title.toLowerCase()
     console.log('CATE ', url)
     axios.get(url)
     .then(responseData => {
