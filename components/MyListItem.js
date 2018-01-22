@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import MyStoryItems from './MyStoryItems'
-import App from './App'
 import {
   StyleSheet,
   TouchableOpacity,
@@ -16,7 +15,7 @@ class MyListItem extends React.PureComponent {
       super(props)
   }
 
-  _onPress = () => {
+  onPress = () => {
     this.props.onPressItem(this.props.id)
     var url = 'http://192.168.178.25:8097/' + this.props.title.toLowerCase()
     console.log('CATE ', url)
@@ -34,7 +33,7 @@ class MyListItem extends React.PureComponent {
 
   render() {
     return (
-      <TouchableOpacity key={this.props.title} onPress={this._onPress}>
+      <TouchableOpacity key={this.props.title} onPress={this.onPress}>
         <View>
           <Text style={{ paddingTop: 15 }}>
             {this.props.title}

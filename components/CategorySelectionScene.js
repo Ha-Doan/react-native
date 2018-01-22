@@ -5,8 +5,8 @@ import axios from 'axios'
 
 class CategorySelectionScene extends React.PureComponent {
   state = {selected: (new Map(): Map<string, boolean>)}
-  _keyExtractor = (item, index) => item.id || item.category
-  _onPressItem = (id: string) => {
+  keyExtractor = (item, index) => item.id || item.category
+  onPressItem = (id: string) => {
     // updater functions are preferred for transactional updates
     this.setState((state) => {
       // copy the map rather than modifying state.
@@ -15,10 +15,10 @@ class CategorySelectionScene extends React.PureComponent {
       return {selected}
     })}
 
-  _renderItem = ({item}) => (
+  renderItem = ({item}) => (
     <MyListItem
       id={item.id}
-      onPressItem={this._onPressItem}
+      onPressItem={this.onPressItem}
       selected={!!this.state.selected.get(item.id)}
       title={item.category}
       navigator={this.props.navigator}
@@ -39,8 +39,8 @@ class CategorySelectionScene extends React.PureComponent {
         <FlatList
           data={this.state.data}
           extraData={this.state}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
           style={styles.myList}
         />
       </View>
@@ -59,3 +59,5 @@ const styles = StyleSheet.create({
 })
 
 export default CategorySelectionScene
+
+//'https://0fkx6lrbs1.execute-api.eu-central-1.amazonaws.com/prod/categories', { headers: { "x-api-key": "726mno5K5paxoUdS8aaWo5b1qfcLOTWtsuyGrWp0" }}
